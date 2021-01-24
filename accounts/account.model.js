@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const role = require('_helper/role')
 
 const Schema = mongoose.Schema;
 
@@ -28,7 +29,7 @@ const schema = new Schema(
         acceptTerms: Boolean,
         role: {
             type: String,
-            required: true
+            default: role.User
         },
         verificationToken: String,
         verified: Date,

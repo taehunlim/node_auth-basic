@@ -27,7 +27,7 @@ async function register(params, origin) {
 
     account.passwordHash = bcrypt.hashSync(params.password)
 
-    await account.save(() => console.log('saved'))
+    await account.save();
     console.log(account)
 }
 
