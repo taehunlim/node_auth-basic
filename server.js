@@ -8,12 +8,14 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const app = express();
-const accountController = require('accounts/account.controller');
+
+
+const accountController = require('./accounts/account.controller');
 
 //DB Connection
 require('_middleware/db');
 
-// rootpather
+
 const errorHandler = require('_middleware/error-handler');
 
 app.use(cookieParser())
