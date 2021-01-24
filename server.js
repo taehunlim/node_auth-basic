@@ -8,6 +8,10 @@ const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
 const app = express();
 
+
+// rootpather
+const errorHandler = require('_middleware/error-handler');
+
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended: false}))
 
@@ -20,6 +24,8 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
+// global Error Handler
+app.use(errorHandler);
 
 const port = process.env.PORT;
 
