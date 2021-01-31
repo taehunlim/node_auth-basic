@@ -62,3 +62,4 @@ paths:
                   message:
                     type: string
                     example: "Registration successful, please check your email for verification instructions"
+

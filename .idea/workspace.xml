@@ -20,12 +20,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a89dfb5-0a39-4355-8ae2-b25662c4f138" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_helper/send-email.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/account.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/account.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/account.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/account.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/account.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/account.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/semver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/make-dir/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/make-dir/node_modules/.bin/semver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodemon/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/nodemon/node_modules/.bin/semver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodemon/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodemon/node_modules/semver/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodemon/node_modules/semver/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodemon/node_modules/semver/bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodemon/node_modules/semver/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodemon/node_modules/semver/range.bnf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodemon/node_modules/semver/semver.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/package-json/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/package-json/node_modules/.bin/semver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/require_optional/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/require_optional/node_modules/.bin/semver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/require_optional/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/require_optional/node_modules/semver/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/require_optional/node_modules/semver/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/require_optional/node_modules/semver/bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/require_optional/node_modules/semver/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/require_optional/node_modules/semver/range.bnf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/require_optional/node_modules/semver/semver.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/semver-diff/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/semver-diff/node_modules/.bin/semver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/semver/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/semver/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/semver/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/semver/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/semver/bin/semver.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/semver/semver.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +86,24 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="" />
+      <option name="jdkPath" value="" />
+      <option name="language" value="" />
+      <option name="specificationPath" value="$PROJECT_DIR$/swagger.yaml" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -74,7 +119,7 @@
       <workItem from="1611651870760" duration="6823000" />
       <workItem from="1611738228554" duration="1191000" />
       <workItem from="1611904458341" duration="11000" />
-      <workItem from="1612076402092" duration="1937000" />
+      <workItem from="1612076402092" duration="9969000" />
     </task>
     <servers />
   </component>
@@ -101,18 +146,22 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="553" y="247" width="602" height="522" key="find.popup/0.23.1680.970@0.23.1680.970" timestamp="1612077913004" />
+    <state x="788" y="236" width="670" height="676" key="search.everywhere.popup" timestamp="1612084819229">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state x="788" y="236" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1612084819229" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/accounts/account.controller.js</url>
-          <line>36</line>
+          <line>38</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/accounts/account.controller.js</url>
-          <line>11</line>
+          <line>13</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

@@ -1,11 +1,14 @@
 const userModel = require('./account.model');
 const crypto = require('crypto');
 const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
 
 const sendEmail = require('_helper/send-email');
 
 module.exports = {
-    register
+    register,
+    verifyEmail,
+    authenticate
 }
 
 
@@ -77,4 +80,53 @@ async function sendVerificationEmail (account, origin) {
                 <p>Thanks for registering</p>
                 ${message}`
     })
+}
+
+async function verifyEmail ({token}) {
+    const account = await userModel.findOne({verificationToken: token})
+
+    if(!account) throw 'Verification failed';
+
+    account.verified = Date.now();
+    account.verificationToken = undefined;
+    await account.save();
+}
+
+async function authenticate ({email, password, ipAddress}) {
+
+    const account = await userModel.findOne({email: email})
+
+    // console.log(account)
+
+    if(!account || !account.verified || !bcrypt.compare(password, account.password)) {
+        throw "Email or Password is incorrect"
+    }
+
+    const jwtToken = generateJwtToken(account);
+
+    return {
+        ...basicDetails(account),
+        jwtToken
+    }
+
+    // console.log("111111", account)
+    // if(!await userModel.findOne({email})) throw "the email dose not exist"
+    //
+    // bcrypt
+    //     .compare(password)
+    //     .then()
+
+}
+
+function generateJwtToken(account) {
+    return jwt.sign(
+        {id: account._id},
+        process.env.SECRET_KEY,
+        {expiresIn: "30m"}
+    )
+}
+
+function basicDetails(account) {
+    const {id, title, firstName, lastName, email, role, created, updated, isVerified} = account;
+    return {id, title, firstName, lastName, email, role, created, updated, isVerified}
 }
