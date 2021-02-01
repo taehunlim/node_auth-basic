@@ -98,7 +98,9 @@ async function authenticate ({email, password, ipAddress}) {
 
     // console.log(account)
 
-    if(!account || !account.verified || !bcrypt.compare(password, account.password)) {
+    console.log(account.passwordHash)
+
+    if(!account || !account.verified || !bcrypt.compareSync(password, account.passwordHash)) {
         throw "Email or Password is incorrect"
     }
 
@@ -127,6 +129,6 @@ function generateJwtToken(account) {
 }
 
 function basicDetails(account) {
-    const {id, title, firstName, lastName, email, role, created, updated, isVerified} = account;
-    return {id, title, firstName, lastName, email, role, created, updated, isVerified}
+    const {id, title, firstName, lastName, email, role, created, updated, verified} = account;
+    return {id, title, firstName, lastName, email, role, created, updated, verified}
 }
