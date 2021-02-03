@@ -9,6 +9,12 @@ const Home = () => {
                 <Link to="/register">
                     To Register
                 </Link>
+
+            </div>
+            <div>
+                <Link to="/verify-email">
+                    To verification
+                </Link>
             </div>
         </div>
     );
