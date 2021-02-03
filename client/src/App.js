@@ -5,6 +5,7 @@ import Home from "./screens/Home";
 import Register from "./screens/Register";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

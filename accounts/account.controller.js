@@ -25,6 +25,8 @@ function registerSchema (req, res, next) {
     })
 
     validRequest(req, next, schema)
+
+
 }
 
 function register(req, res, next) {
@@ -37,6 +39,7 @@ function register(req, res, next) {
             })
         })
         .catch(next);
+
 }
 
 function verifyEmailSchema(req, res, next) {

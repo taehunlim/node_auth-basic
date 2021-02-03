@@ -96,10 +96,6 @@ async function authenticate ({email, password, ipAddress}) {
 
     const account = await userModel.findOne({email: email})
 
-    // console.log(account)
-
-    console.log(account.passwordHash)
-
     if(!account || !account.verified || !bcrypt.compareSync(password, account.passwordHash)) {
         throw "Email or Password is incorrect"
     }
@@ -110,14 +106,6 @@ async function authenticate ({email, password, ipAddress}) {
         ...basicDetails(account),
         jwtToken
     }
-
-    // console.log("111111", account)
-    // if(!await userModel.findOne({email})) throw "the email dose not exist"
-    //
-    // bcrypt
-    //     .compare(password)
-    //     .then()
-
 }
 
 function generateJwtToken(account) {
