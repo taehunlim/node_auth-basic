@@ -3,8 +3,11 @@ import {Link} from 'react-router-dom';
 import {Col, Card} from 'react-bootstrap';
 import {ToastContainer, toast} from 'react-toastify'
 import axios from 'axios';
+import {connect} from 'react-redux';
 
-const Authenticate = ({history}) => {
+import {loginUser} from '../actions/authActions'
+
+const Authenticate = ({loginUser}) => {
 
     const [formData, setFormData] = useState({
         email: "",
@@ -23,32 +26,33 @@ const Authenticate = ({history}) => {
         e.preventDefault();
 
         if(email && password) {
-            setFormData({...formData, textChange: "SUBMITTING"})
-            axios
-                .post("http://localhost:5000/account/authenticate", {
-                    email, password
-                })
-                .then(res => {
-                    setFormData({
-                        ...formData,
-                        email: '',
-                        password: "",
-                        textChange: "SUBMITTED"
-                    })
-                    console.log(res.data)
-                    window.setTimeout(() => {
-                        history.push('/')
-                    })
-                })
-                .catch(err => {
-                    setFormData({
-                        ...formData,
-                        email: "",
-                        password: "",
-                        textChange: "Sign In"
-                    })
-                    toast.error("Email or Password is incorrect")
-                })
+            setFormData({...formData})
+            loginUser(formData)
+            // axios
+            //     .post("http://localhost:5000/account/authenticate", {
+            //         email, password
+            //     })
+            //     .then(res => {
+            //         setFormData({
+            //             ...formData,
+            //             email: '',
+            //             password: "",
+            //             textChange: "SUBMITTED"
+            //         })
+            //         console.log(res.data)
+            //         window.setTimeout(() => {
+            //             history.push('/')
+            //         })
+            //     })
+            //     .catch(err => {
+            //         setFormData({
+            //             ...formData,
+            //             email: "",
+            //             password: "",
+            //             textChange: "Sign In"
+            //         })
+            //         toast.error("Email or Password is incorrect")
+            //     })
         }
         else {
             toast.error("Please fill all fields ")
@@ -162,4 +166,9 @@ const Authenticate = ({history}) => {
     );
 };
 
-export default Authenticate;
+const mapStateToProps = state => ({
+    auth: state.authData,
+    errors: state.errors
+})
+
+export default connect(mapStateToProps, {loginUser}) (Authenticate);
