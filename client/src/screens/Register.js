@@ -3,8 +3,11 @@ import {Col, Card} from 'react-bootstrap';
 import {ToastContainer, toast} from 'react-toastify'
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import {connect} from 'react-redux';
 
-const Register = () => {
+import {registerUser} from '../actions/authActions';
+
+const Register = ({registerUser}) => {
 
     const [formData, setFormData] = useState({
         title: "",
@@ -13,12 +16,12 @@ const Register = () => {
         email: "",
         password: "",
         confirmPassword: "",
-        acceptTerms: false,
+        acceptTerms: true,
         textChange: "JOIN"
     });
     const [agree, setAgree] = useState(false)
 
-    const {title, firstName, lastName, email, password, confirmPassword, acceptTerms, textChange} = formData;
+    const {title, firstName, lastName, email, password, confirmPassword, textChange} = formData;
 
     const handleChange = text => e => {
         setFormData({...formData, [text]: e.target.value})
@@ -29,38 +32,46 @@ const Register = () => {
 
         if( title && firstName && lastName && email && password ) {
             if( password === confirmPassword ) {
-                setFormData({...formData, textChange: "SUBMITTING"})
-                axios
-                    .post("http://localhost:5000/account/register", {
-                        title, firstName, lastName, email, password, confirmPassword, acceptTerms:true
-                    })
-                    .then(res => {
-                        setFormData({
-                            ...formData,
-                            title: "",
-                            firstName: "",
-                            lastName: "",
-                            email: "",
-                            password: "",
-                            confirmPassword: "",
-                            acceptTerms: false,
-                            textChange: "SUBMITTED"
-                        })
-                        toast.success(res.data.message)
-                    })
-                    .catch(err => {
-                        setFormData({
-                            ...formData,
-                            title: "",
-                            firstName: "",
-                            lastName: "",
-                            email: "",
-                            password: "",
-                            confirmPassword: "",
-                            acceptTerms: false,
-                            textChange: "JOIN"
-                        })
-                    })
+                if( password.length >= 6) {
+                    setFormData({...formData, textChange: "SUBMITTING"})
+
+                    registerUser(formData)
+                }
+
+                // axios
+                //     .post("http://localhost:5000/account/register", {
+                //         title, firstName, lastName, email, password, confirmPassword, acceptTerms:true
+                //     })
+                //     .then(res => {
+                //         setFormData({
+                //             ...formData,
+                //             title: "",
+                //             firstName: "",
+                //             lastName: "",
+                //             email: "",
+                //             password: "",
+                //             confirmPassword: "",
+                //             acceptTerms: false,
+                //             textChange: "SUBMITTED"
+                //         })
+                //         toast.success(res.data.message)
+                //     })
+                //     .catch(err => {
+                //         setFormData({
+                //             ...formData,
+                //             title: "",
+                //             firstName: "",
+                //             lastName: "",
+                //             email: "",
+                //             password: "",
+                //             confirmPassword: "",
+                //             acceptTerms: false,
+                //             textChange: "JOIN"
+                //         })
+                //     })
+                else {
+                    toast.error("Password length must be at least 6 characters")
+                }
             }
             else {
                 toast.error("Please Check the Confirm Password")
@@ -190,4 +201,9 @@ const Register = () => {
     );
 };
 
-export default Register;
+const mapStateToProps = state => ({
+    auth: state.authData,
+    errors: state.errors
+})
+
+export default connect (mapStateToProps, {registerUser}) (Register);

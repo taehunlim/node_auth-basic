@@ -35,6 +35,7 @@ const Authenticate = ({history}) => {
                         password: "",
                         textChange: "SUBMITTED"
                     })
+                    console.log(res.data)
                     window.setTimeout(() => {
                         history.push('/')
                     })
