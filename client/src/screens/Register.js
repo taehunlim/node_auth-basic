@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Col, Card} from 'react-bootstrap';
 import {ToastContainer, toast} from 'react-toastify'
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 const Register = () => {
 
@@ -71,18 +72,19 @@ const Register = () => {
     }
 
     return (
+
         <div>
             <ToastContainer/>
             <div className="d-flex">
                 <Col className="text-center mt-5">
                     <Card>
 
-                        <Card.Body>
+                        <Card.Body className="mt-5">
                             <h1>
                                 JOIN IN
                             </h1>
                             <form
-                                className="mt-4"
+                                className="ml-auto mr-auto w-75 mt-4"
                                 onSubmit={handleSubmit}
                             >
                                 <div>
@@ -144,8 +146,31 @@ const Register = () => {
                                         type="submit"
                                         disabled={!agree}
                                     >
-                                        {textChange}
+                                        <i className='fas fa-user-plus p-2'/>
+                                        <span>{textChange}</span>
                                     </button>
+
+                                    <div className='d-block border-bottom mt-4 mb-4'>
+                                        <div
+                                            className="bg-white m-auto"
+                                            style={{
+                                                transform: "translateY(50%)",
+                                                width: "60%"
+                                            }}
+                                        >
+                                            Or Sign In with email or social login
+                                        </div>
+                                    </div>
+
+                                    <div className="w-100 p-2 border-0 mt-5 mb-5 bg-primary">
+                                        <Link
+                                            to="/authenticate"
+                                            className="text-light"
+                                        >
+                                            <i className='fas fa-sign-in-alt p-2'/>
+                                            <span>Sign In</span>
+                                        </Link>
+                                    </div>
                                 </div>
                             </form>
                         </Card.Body>

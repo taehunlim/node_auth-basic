@@ -52,7 +52,7 @@ const Verification = ({match, history}) => {
                                 Welcome
                             </h1>
                             <form
-                                className="mt-4"
+                                className="ml-auto mr-auto w-75 mt-4"
                                 onSubmit={handleSubmit}
                             >
                                 <div>

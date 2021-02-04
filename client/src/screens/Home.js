@@ -16,6 +16,11 @@ const Home = () => {
                     To verification
                 </Link>
             </div>
+            <div>
+                <Link to="/authenticate">
+                    To Sign In
+                </Link>
+            </div>
         </div>
     );
 };
