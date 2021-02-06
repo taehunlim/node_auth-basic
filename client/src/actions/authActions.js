@@ -47,18 +47,22 @@ export const loginUser = (userData) => dispatch => {
 
                 setAuthToken(jwtToken)
 
-                console.log(res.data)
-
                 const decoded = jwt_decoded(jwtToken)
 
                 dispatch(setCurrentUser(decoded))
             })
         })
-        // .catch(err => {
-        //     dispatch({
-        //         type: GET_ERRORS,
-        //         payload: err.response.data
-        //     })
-        //     toast.error("Email or Password is incorrect")
-        // })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+            toast.error("Email or Password is incorrect")
+        })
+}
+
+export const logoutUser = () => dispatch => {
+    localStorage.removeItem('jwtToken');
+    setAuthToken(false);
+    dispatch(setCurrentUser({}));
 }

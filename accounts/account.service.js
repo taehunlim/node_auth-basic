@@ -8,7 +8,8 @@ const sendEmail = require('_helper/send-email');
 module.exports = {
     register,
     verifyEmail,
-    authenticate
+    authenticate,
+    forgotPassword
 }
 
 
@@ -61,7 +62,7 @@ async function sendVerificationEmail (account, origin) {
 
     let message;
     if(origin) {
-        const verifyUrl = `${origin}/account/verify-email?token=${account.verificationToken}`
+        const verifyUrl = `${origin}/account/verify-email/${account.verificationToken}`
 
         message =
             `<p>Please Click The below link to verify your email address</p>
@@ -119,4 +120,48 @@ function generateJwtToken(account) {
 function basicDetails(account) {
     const {id, title, firstName, lastName, email, role, created, updated, verified} = account;
     return {id, title, firstName, lastName, email, role, created, updated, verified}
+}
+
+async function forgotPassword ({email}, origin) {
+    const account = await userModel.findOne({email})
+
+    if(!account) {
+        throw "No user"
+    }
+    else {
+        account.resetToken = {
+            token: randomTokenString(),
+            expiresIn: new Date(Date.now() + 24*60*60*1000)
+        }
+
+        await account.save();
+
+
+        //send Email
+        await sendPasswordResetEmail(account, origin)
+    }
+}
+
+async function sendPasswordResetEmail (account, origin) {
+
+    let message;
+    if(origin) {
+        const resetUrl = `${origin}/account/forgot-password?token=${account.resetToken.token}`
+
+        message =
+            `<p>Please Click The below link to reset your password, the link will be valid for 1 day:</p>
+            <p><a href={resetUrl}>${resetUrl}</a></p>`;
+
+    }
+    else {
+        message = `<p>Please use the below token to reset your password with the <code>/account/reset-password</code> api route:</p> 
+                    <p><code>${account.resetToken.token}</code></p>`;
+    }
+
+    await sendEmail({
+        to: account.email,
+        subject: "sign-up verification API - Reset password",
+        html: `<h4>Reset password email</h4>
+                ${message}`
+    })
 }

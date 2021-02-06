@@ -20,11 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a89dfb5-0a39-4355-8ae2-b25662c4f138" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/helpers/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/utills/setAuthToken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/account.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/account.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/account.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/account.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/authActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/helpers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/helpers/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/screens/Authenticate.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/Authenticate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +105,8 @@
       <workItem from="1612331626275" duration="7933000" />
       <workItem from="1612342615656" duration="7000000" />
       <workItem from="1612355437361" duration="2952000" />
-      <workItem from="1612421176744" duration="12908000" />
+      <workItem from="1612421176744" duration="16522000" />
+      <workItem from="1612590924348" duration="2814000" />
     </task>
     <servers />
   </component>
@@ -148,27 +153,28 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state width="1091" height="256" key="GridCell.Tab.0.right/0.23.1680.970@0.23.1680.970" timestamp="1612180219037" />
-    <state x="553" y="247" width="602" height="522" key="find.popup" timestamp="1612428860447">
+    <state x="553" y="247" width="602" height="522" key="find.popup" timestamp="1612438518020">
       <screen x="0" y="25" width="1680" height="962" />
     </state>
     <state x="553" y="247" width="602" height="522" key="find.popup/0.23.1680.970@0.23.1680.970" timestamp="1612339717200" />
-    <state x="553" y="247" width="602" height="522" key="find.popup/0.25.1680.962@0.25.1680.962" timestamp="1612428860447" />
-    <state x="788" y="236" width="670" height="676" key="search.everywhere.popup" timestamp="1612088121132">
-      <screen x="0" y="23" width="1680" height="970" />
+    <state x="553" y="247" width="602" height="522" key="find.popup/0.25.1680.962@0.25.1680.962" timestamp="1612438518020" />
+    <state x="788" y="236" width="670" height="671" key="search.everywhere.popup" timestamp="1612437771971">
+      <screen x="0" y="25" width="1680" height="962" />
     </state>
     <state x="788" y="236" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1612088121132" />
+    <state x="788" y="236" width="670" height="671" key="search.everywhere.popup/0.25.1680.962@0.25.1680.962" timestamp="1612437771971" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/accounts/account.controller.js</url>
-          <line>40</line>
+          <line>41</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/accounts/account.controller.js</url>
-          <line>13</line>
+          <line>14</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

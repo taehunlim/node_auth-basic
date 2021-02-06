@@ -6,8 +6,9 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 
 import {loginUser} from '../actions/authActions'
+import {isAuth} from '../helpers/auth';
 
-const Authenticate = ({loginUser}) => {
+const Authenticate = ({loginUser, history}) => {
 
     const [formData, setFormData] = useState({
         email: "",
@@ -28,6 +29,10 @@ const Authenticate = ({loginUser}) => {
         if(email && password) {
             setFormData({...formData})
             loginUser(formData)
+
+            isAuth() && isAuth().role === 'User'
+                ? history.push('/')
+                : history.push('/register')
             // axios
             //     .post("http://localhost:5000/account/authenticate", {
             //         email, password

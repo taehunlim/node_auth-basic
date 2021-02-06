@@ -63,7 +63,6 @@ paths:
                     type: string
                     example: "Registration successful, please check your email for verification instructions"
 
-
   /account/verify-email:
     post:
       summary: verification email
@@ -175,3 +174,41 @@ paths:
                   message:
                     type: string
                     example: "Email or Password is incorrect"
+
+  /account/forgot-password:
+    post:
+      summary: forgot-password
+      operationId: forgot-password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "dsa123@naver.com"
+
+      responses:
+        "200":
+          description: Please check your email for password reset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Please check your email for password reset"
+
+        "400":
+          description: No user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "No User"

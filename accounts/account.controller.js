@@ -8,6 +8,7 @@ const validRequest = require('_middleware/validate-request');
 router.post("/register", registerSchema, register)
 router.post("/verify-email", verifyEmailSchema, verifyEmail)
 router.post("/authenticate", authenticateSchema, authenticate)
+router.post('/forgot-password', forgotPasswordSchema, forgotPassword)
 
 
 
@@ -83,3 +84,21 @@ function authenticate(req, res, next) {
         })
         .catch(next)
 }
+
+function forgotPasswordSchema (req, res, next) {
+    const schema = Joi.object({
+        email: Joi.string().email().required()
+    })
+    validRequest(req, next, schema)
+}
+
+function forgotPassword (req, res, next) {
+
+    accountService
+        .forgotPassword(req.body, req.get("origin"))
+        .then(() => {
+            res.json("Please check your email for password reset")
+        })
+        .catch(next)
+}
+
