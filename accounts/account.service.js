@@ -10,7 +10,8 @@ module.exports = {
     verifyEmail,
     authenticate,
     forgotPassword,
-    resetPassword
+    resetPassword,
+    getAll
 }
 
 
@@ -183,4 +184,11 @@ async function resetPassword ({token, password}) {
     account.resetToken = undefined
 
     await account.save()
+}
+
+async function getAll () {
+    const accounts = await userModel.find()
+
+    console.log(accounts)
+    return accounts.map(a => basicDetails(a))
 }

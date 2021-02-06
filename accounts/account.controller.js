@@ -4,12 +4,17 @@ const router = express.Router();
 const accountService = require('./account.service');
 const Joi = require('joi');
 const validRequest = require('_middleware/validate-request');
+const authorize = require('_middleware/authorize');
+const Role = require('_helper/role');
 
 router.post("/register", registerSchema, register)
 router.post("/verify-email", verifyEmailSchema, verifyEmail)
 router.post("/authenticate", authenticateSchema, authenticate)
 router.post('/forgot-password', forgotPasswordSchema, forgotPassword)
+
 router.put('/reset-password', resetPasswordSchema, resetPassword)
+
+router.get('/', authorize(Role.Admin), getAll)
 
 
 
@@ -117,6 +122,15 @@ function resetPassword (req, res, next) {
         .resetPassword(req.body)
         .then(() => {
             res.json("successful change password, you can now log in")
+        })
+        .catch(next)
+}
+
+function getAll (req, res, next) {
+    accountService
+        .getAll()
+        .then(accounts => {
+            res.json(accounts)
         })
         .catch(next)
 }
