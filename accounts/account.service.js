@@ -9,7 +9,8 @@ module.exports = {
     register,
     verifyEmail,
     authenticate,
-    forgotPassword
+    forgotPassword,
+    resetPassword
 }
 
 
@@ -131,8 +132,8 @@ async function forgotPassword ({email}, origin) {
     else {
         account.resetToken = {
             token: randomTokenString(),
-            expiresIn: new Date(Date.now() + 24*60*60*1000)
-        }
+            expires: new Date(Date.now() + 24*60*60*1000)
+        };
 
         await account.save();
 
@@ -164,4 +165,22 @@ async function sendPasswordResetEmail (account, origin) {
         html: `<h4>Reset password email</h4>
                 ${message}`
     })
+}
+
+async function resetPassword ({token, password}) {
+    const account = await userModel.findOne({
+        'resetToken.token': token,
+        'resetToken.expires': { $gt: Date.now() }
+    });
+
+    console.log(account)
+
+    if(!account) {
+        throw "Invalid token"
+    }
+    account.passwordHash = bcrypt.hashSync(password, 10)
+    account.passwordReset = Date.now()
+    account.resetToken = undefined
+
+    await account.save()
 }

@@ -9,6 +9,7 @@ router.post("/register", registerSchema, register)
 router.post("/verify-email", verifyEmailSchema, verifyEmail)
 router.post("/authenticate", authenticateSchema, authenticate)
 router.post('/forgot-password', forgotPasswordSchema, forgotPassword)
+router.put('/reset-password', resetPasswordSchema, resetPassword)
 
 
 
@@ -102,3 +103,20 @@ function forgotPassword (req, res, next) {
         .catch(next)
 }
 
+function resetPasswordSchema (req, res, next) {
+    const schema = Joi.object({
+        token: Joi.string().required(),
+        password: Joi.string().min(6).required(),
+        confirmPassword: Joi.string().valid(Joi.ref('password')).required()
+    });
+    validRequest(req, next, schema);
+}
+
+function resetPassword (req, res, next) {
+    accountService
+        .resetPassword(req.body)
+        .then(() => {
+            res.json("successful change password, you can now log in")
+        })
+        .catch(next)
+}

@@ -212,3 +212,47 @@ paths:
                   message:
                     type: string
                     example: "No User"
+
+  /account/reset-password:
+    put:
+      summary: reset-password
+      operationId: reset-password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  example: "asd123"
+                confirmPassword:
+                  type: string
+                  example: "asd123"
+                token:
+                  type: string
+                  example: "c13d840431c2bd6ab4a6680c318f50f496137a31aadee59e820f07bb07f24421fd963bb800bcd959"
+
+      responses:
+        "200":
+          description: successful change password, you can now log in
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "successful change password, you can now log in"
+
+        "400":
+          description: Invalid token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Invalid token"
