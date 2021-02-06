@@ -13,6 +13,8 @@ import Home from "./screens/Home";
 import Register from "./screens/Register";
 import Verification from "./screens/Verification";
 import Authenticate from "./screens/Authenticate";
+import ForgotPassword from "./screens/ForgotPassword";
+import ResetPassword from "./screens/ResetPassword";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'react-toastify/dist/ReactToastify.css';
@@ -42,8 +44,10 @@ function App() {
                   <Switch>
                       <Route path="/" exact render={ props => <Home {...props}/> } />
                       <Route path="/register" render={ props => <Register {...props}/> } />
-                      <Route path="/account/verify-email/:token" render={ props => <Verification{...props}/> } />
+                      <Route path="/account/verify-email/:token" render={ props => <Verification {...props}/> } />
                       <Route path="/authenticate" render={ props => <Authenticate {...props}/> } />
+                      <Route path="/account/forgot-password" render={ props => <ForgotPassword {...props}/> } />
+                      <Route path="/account/reset-password/:token" render={ props => <ResetPassword {...props}/> } />
                       <Redirect to="/" />
                   </Switch>
               </BrowserRouter>

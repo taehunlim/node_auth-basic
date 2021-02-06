@@ -21,6 +21,16 @@ const Home = () => {
                     To Sign In
                 </Link>
             </div>
+            <div>
+                <Link to="/forgot-password">
+                    To find password
+                </Link>
+            </div>
+            <div>
+                <Link to="/reset-password">
+                    To reset password
+                </Link>
+            </div>
         </div>
     );
 };
