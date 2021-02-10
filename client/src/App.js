@@ -8,6 +8,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import jwt_decoded from 'jwt-decode';
 
 import {setCurrentUser, loginUser} from "./actions/authActions";
+import setAuthToken from "./utills/setAuthToken";
 
 import Home from "./screens/Home";
 import Register from "./screens/Register";
@@ -23,18 +24,20 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const persist = persistStore(store)
 
-// if(localStorage.jwtToken) {
-//     const decoded = jwt_decoded(localStorage.jwtToken)
-//
-//     store.dispatch(setCurrentUser(decoded))
-//
-//     const currentTime = Date.now() / 1000;
-//
-//     if(decoded.exp < currentTime) {
-//         store.dispatch(loginUser());
-//         window.location.href = '/authenticate'
-//     }
-// }
+if(localStorage.jwtToken) {
+    setAuthToken(localStorage.jwtToken);
+
+    const decoded = jwt_decoded(localStorage.jwtToken)
+
+    store.dispatch(setCurrentUser(decoded))
+
+    const currentTime = Date.now() / 1000;
+
+    if(decoded.exp < currentTime) {
+        store.dispatch(loginUser());
+        window.location.href = '/authenticate'
+    }
+}
 
 function App() {
   return (
