@@ -9,6 +9,13 @@ servers:
   - url: http://localhost:5000
     description: local test
 
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
 paths:
 
   /account/register:
@@ -154,15 +161,6 @@ paths:
                   verified:
                     type: string
                     example: "2021-01-31T10:13:58.140Z"
-                required:
-                  - id
-                  - title
-                  - firstName
-                  - lastname
-                  - email
-                  - role
-                  - verified
-                  - jwtToken
 
         "400":
           description: Email or Password is incorrect
@@ -189,6 +187,8 @@ paths:
                 email:
                   type: string
                   example: "dsa123@naver.com"
+              required:
+                - email
 
       responses:
         "200":
@@ -233,6 +233,10 @@ paths:
                 token:
                   type: string
                   example: "c13d840431c2bd6ab4a6680c318f50f496137a31aadee59e820f07bb07f24421fd963bb800bcd959"
+              required:
+                - password
+                - confirmPassword
+                - token
 
       responses:
         "200":
@@ -256,3 +260,104 @@ paths:
                   message:
                     type: string
                     example: "Invalid token"
+
+  /account:
+    get:
+      summary: Get all user
+      operationId: Get all user
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Get all user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "601a751c66574217b1e2624a"
+                  title:
+                    type: string
+                    example: "mr"
+                  firsName:
+                    type: string
+                    example: "jeremy"
+                  lastName:
+                    type: string
+                    example: "lim"
+                  email:
+                    type: string
+                    example: "dsa123@naver.com"
+                  role:
+                    type: string
+                    example: "Admin"
+                  verified:
+                    type: string
+                    example: "2021-02-03T10:10:04:45.702Z"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+
+  /account/{userId}:
+    get:
+      summary: Get a user by ID
+      operationId: Get a user by ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: userId
+          schema:
+            type: string
+            minimum: 1
+          required: true
+          description: ID of the user to get
+      responses:
+        "200":
+          description: Get the user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "601a751c66574217b1e2624a"
+                  title:
+                    type: string
+                    example: "mr"
+                  firsName:
+                    type: string
+                    example: "jeremy"
+                  lastName:
+                    type: string
+                    example: "lim"
+                  email:
+                    type: string
+                    example: "dsa123@naver.com"
+                  role:
+                    type: string
+                    example: "Admin"
+                  verified:
+                    type: string
+                    example: "2021-02-03T10:10:04:45.702Z"
+
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
