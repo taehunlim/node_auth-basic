@@ -20,13 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a89dfb5-0a39-4355-8ae2-b25662c4f138" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/accounts/refresh-token.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/account.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/account.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/account.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/account.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +58,7 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="SwaggerCodegen">
@@ -105,7 +102,8 @@
       <workItem from="1612342615656" duration="7000000" />
       <workItem from="1612355437361" duration="2952000" />
       <workItem from="1612421176744" duration="16522000" />
-      <workItem from="1612590924348" duration="10304000" />
+      <workItem from="1612590924348" duration="11159000" />
+      <workItem from="1612701421386" duration="2753000" />
     </task>
     <servers />
   </component>
@@ -168,12 +166,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/accounts/account.controller.js</url>
-          <line>47</line>
+          <line>48</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/accounts/account.controller.js</url>
-          <line>20</line>
+          <line>21</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

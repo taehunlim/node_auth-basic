@@ -11,7 +11,8 @@ module.exports = {
     authenticate,
     forgotPassword,
     resetPassword,
-    getAll
+    getAll,
+    getById
 }
 
 
@@ -174,8 +175,6 @@ async function resetPassword ({token, password}) {
         'resetToken.expires': { $gt: Date.now() }
     });
 
-    console.log(account)
-
     if(!account) {
         throw "Invalid token"
     }
@@ -189,6 +188,15 @@ async function resetPassword ({token, password}) {
 async function getAll () {
     const accounts = await userModel.find()
 
-    console.log(accounts)
     return accounts.map(a => basicDetails(a))
+}
+
+async function getById ({userId}) {
+    const account = await userModel.findById({_id: userId})
+
+    if(!account) throw "The id dose not exist"
+
+    return {
+        ...basicDetails(account)
+    }
 }

@@ -15,6 +15,7 @@ router.post('/forgot-password', forgotPasswordSchema, forgotPassword)
 router.put('/reset-password', resetPasswordSchema, resetPassword)
 
 router.get('/', authorize(Role.Admin), getAll)
+router.get('/:userId', authorize(Role.Admin), getById)
 
 
 
@@ -131,6 +132,15 @@ function getAll (req, res, next) {
         .getAll()
         .then(accounts => {
             res.json(accounts)
+        })
+        .catch(next)
+}
+
+function getById (req, res, next) {
+    accountService
+        .getById(req.params)
+        .then(detail => {
+            res.json(detail)
         })
         .catch(next)
 }
